@@ -95,7 +95,7 @@ function [xh,pf, P, L] = RBPF(x_true, y, LRS, u, a, pf, Nsamples, resampling_str
             %Plot grid-map, all positions and all scans (Black: True postion, Blue: Position and scan initial estimates, red:
             %Converged position and laser data
                 figure(42)
-                set(gcf,'units','normalized','outerposition',[1 0 1 1]);
+                set(gcf,'units','normalized','outerposition',[0 0 1 1]);
                 clf;
                 caxis([0, 1]);
                 colormap gray;
