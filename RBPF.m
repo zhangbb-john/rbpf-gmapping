@@ -1,5 +1,9 @@
 function [xh,pf, P, L] = RBPF(x_true, y, LRS, u, a, pf, Nsamples, resampling_strategy)
+    % comment: x_past <- pf.particles(:,:,k-1), getting the pf estimates (original);         
+    % x_initial_estimate(:,i) <- Kinematics(x_past(:,i),u+sqrt(pf.R1)*randn(length(u),1)), propagating the states;
+    % if new loop, x_final get updated; else, x_final <- old x_initial_estimate.
     
+
     % x_true: true position of robot
     % y: True laser scan
     % LRS: laser scan inforamtion

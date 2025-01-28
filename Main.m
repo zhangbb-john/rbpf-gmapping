@@ -277,8 +277,17 @@ title('Y Estimation Error')
 xlabel('Samples')
 ylabel('Error (dm)')
 subplot(3,1,3)
-plot(x(3,:)-pf.xh(3,:))
+plot(normalizeAngle(x(3,:)-pf.xh(3,:)))
 grid on
 title('Theta Estimation Error')
 xlabel('Samples')
 ylabel('Error (rad)')
+
+function x1 = normalizeAngle(x)
+x1 = mod(x, 2 * pi);
+ids = find(x1 > pi);
+if (length(ids) > 0)
+    x1(ids) = x1(ids) - 2 * pi;
+end
+x1 = abs(x1);
+end
